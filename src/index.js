@@ -1,26 +1,23 @@
-import React, {Component, Fragment} from "react";
+import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
 
-class Button extends Component {
-  render() {
-    return (
-      <a href="" onClick={this.props.onClickss}>
-      {this.props.children}
-        </a>
-    );
-  }
-}
+import Button from "./Button"
 
 class App extends Component {
-  handleClick() {
-    alert("Botao clicado!ssss");
+  state = {
+    counter: 0,
+  };
+
+  handleClick = () => {
+    this.setState({ counter: this.state.counter + 1});
   }
 
   render() {
     return(
     <Fragment>
       <h1>Hello Rocketseat</h1>
-      <Button onClick={this.handleClick}>Enviar</Button>
+      <h2>{this.state.counter}</h2>
+      <Button onClick={this.handleClick}>Somar</Button>
     </Fragment>
     );
   }
